@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Room</title>
+    <link rel="stylesheet" href="css/createRoom.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/createRoom.js" defer></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <h1 class="title">Drawsarous</h1>
+    <div class="container">
+      <aside class="players-panel">
+        <h3>Players</h3>
+        <ul id="playerList">
+          <li class="player host">Dizzy Cricket</li>
+          <li class="player">Famous Parrot</li>
+        </ul>
+      </aside>
+
+      <main class="settings-panel">
+        <h2>Create Lobby</h2>
+
+        <div class="form-group">
+          <label>Lobby Name</label>
+          <input type="text" placeholder="Enter lobby name" />
+        </div>
+
+        <div class="form-group">
+          <label>Max Players</label>
+          <select>
+            <option>4</option>
+            <option>6</option>
+            <option selected>8</option>
+            <option>10</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Drawing Time (seconds)</label>
+          <input type="number" min="30" max="180" value="90" />
+        </div>
+
+        <div class="form-group">
+          <label>Room Id</label>
+          <div class="link-section">
+            <input
+              type="text"
+              id="roomid"
+              readonly
+              value="Hover over me to see the link!"
+            />
+            <button id="copyBtn">Copy</button>
+          </div>
+        </div>
+
+        <button id="startBtn" class="start-btn">Start</button>
+      </main>
+
+      <div class="chat-panel">
+        <div class="messages" id="messages">
+          <p><strong>Famous Parrot</strong> joined the room!</p>
+        </div>
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type your guess/chat here"
+        />
+      </div>
+    </div>
+  </body>
+</html>

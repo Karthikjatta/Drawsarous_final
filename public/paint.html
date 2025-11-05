@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawsarous - Game On!</title>
+
+    <link rel="stylesheet" href="css/paint.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Socket.io Client -->
+    <script src="/socket.io/socket.io.js" defer></script>
+
+    <!-- Your JS -->
+    <script src="js/paint.js" defer></script>
+  </head>
+  <body>
+    <!-- NEW: Game UI Header -->
+    <header class="game-header">
+      <div id="roundInfo" class="game-stat">Round 1 / 3</div>
+      <div id="hiddenWord" class="game-stat word-display">_ _ _ _ _ _</div>
+      <div id="timer" class="game-stat">90</div>
+    </header>
+
+    <div class="container">
+      <!-- Player List & Chat Sidebar -->
+      <aside class="sidebar">
+        <h3>Players</h3>
+        <ul id="playerList">
+          <!-- Player scores will be dynamically inserted here -->
+        </ul>
+
+        <h3>Chat</h3>
+        <div id="messages" class="chat-box"></div>
+        <input
+          id="guessInput"
+          class="chat-input"
+          type="text"
+          placeholder="Type your guess here..."
+        />
+      </aside>
+
+      <!-- Main Paint Panel -->
+      <main class="main-board">
+        <!-- Toolbar (for Drawer) -->
+        <section id="toolbar" class="tools-board hidden">
+          <!-- This toolbar is hidden by default and shown only for the drawer -->
+          <div class="row">
+            <label class="title">Shapes</label>
+            <ul class="options">
+              <li class="option tool" id="rectangle"><span>Rectangle</span></li>
+              <li class="option tool" id="circle"><span>Circle</span></li>
+              <li class="option tool" id="triangle"><span>Triangle</span></li>
+            </ul>
+          </div>
+
+          <div class="row">
+            <label class="title">Options</label>
+            <ul class="options">
+              <li class="option active tool" id="brush"><span>Brush</span></li>
+              <li class="option tool" id="eraser"><span>Eraser</span></li>
+              <li class="option">
+                <input
+                  type="range"
+                  id="size-slider"
+                  min="1"
+                  max="30"
+                  value="5"
+                />
+              </li>
+              <li class="option">
+                <input type="checkbox" id="fill-color" /><label for="fill-color"
+                  >Fill</label
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="row colors">
+            <label class="title">Colors</label>
+            <ul class="options">
+              <li class="option" style="background: #fff"></li>
+              <li class="option" style="background: #000"></li>
+              <li class="option selected" style="background: #e02020"></li>
+              <li class="option" style="background: #6dd400"></li>
+              <li class="option" style="background: #4a98f7"></li>
+              <li class="option" style="background: #f5f500"></li>
+              <li class="option">
+                <input type="color" id="color-picker" value="#4a98f7" />
+              </li>
+            </ul>
+          </div>
+
+          <button id="clearCanvasBtn" class="clear-canvas">Clear Canvas</button>
+        </section>
+
+        <!-- Canvas -->
+        <section class="draw-board">
+          <canvas id="canvas"></canvas>
+        </section>
+      </main>
+    </div>
+
+    <!-- NEW: Word Choice Popup (for Drawer) -->
+    <div id="wordChoicePopup" class="popup hidden">
+      <div class="popup-content">
+        <h3>Choose a Word to Draw</h3>
+        <div id="wordOptions" class="word-options">
+          <!-- Word choice buttons will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

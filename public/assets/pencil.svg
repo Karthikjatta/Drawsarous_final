@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 200 60" fill="none">
+  <!-- Body -->
+  <rect x="20" y="20" width="120" height="20" stroke="#fbc02d" stroke-width="4" fill="none"/>
+  <!-- Tip -->
+  <polygon points="140,20 180,30 140,40" stroke="#fbc02d" stroke-width="4" fill="none"/>
+  <!-- Eraser -->
+  <rect x="10" y="20" width="10" height="20" stroke="#fbc02d" stroke-width="4" fill="none"/>
+</svg>

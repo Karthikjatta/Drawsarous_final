@@ -1,0 +1,261 @@
+:root {
+  --bg-dark: hsl(228 79% 2%);
+  --bg: hsl(222 55% 5%);
+  --bg-light: hsl(220 35% 10%);
+  --text: hsl(220 100% 98%);
+  --text-muted: hsl(220 35% 73%);
+  --highlight: hsl(220 20% 42%);
+  --border: hsl(220 26% 31%);
+  --border-muted: hsl(220 37% 20%);
+  --primary: hsl(137, 86%, 62%);
+  --secondary: hsl(50, 67%, 72%);
+  --danger: hsl(9 26% 64%);
+  --warning: hsl(52 19% 57%);
+  --success: hsl(146 17% 59%);
+  --info: hsl(217 28% 65%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 30% 20%,
+    var(--bg-light),
+    var(--bg-dark)
+  );
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+  color: var(--text);
+  z-index: 1;
+}
+
+.title {
+  font-size: 100px;
+  color: var(--primary);
+  margin: 0;
+  border-radius: 20px;
+  font-family: "Fredoka One", "Chewy", cursive;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px var(--highlight), 0 0 20px var(--highlight);
+  transition: transform 0.3s ease;
+}
+
+.title:hover {
+  transform: scale(1.05);
+}
+
+p {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px var(--highlight);
+}
+.mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.dino {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: 30px;
+  left: 70px;
+  /* pointer-events: none; */
+  filter: drop-shadow(0 0 5px var(--border));
+  transition: transform 0.3s ease;
+}
+
+.dino:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+#username {
+  width: 80%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--bg-light);
+  color: var(--text);
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#username:focus {
+  border-color: var(--primary);
+}
+
+button {
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 60px;
+  margin: 15px 0;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Baloo 2", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--bg-dark);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.main-btn {
+  background: var(--primary);
+  font-size: 40px;
+  color: var(--bg-dark);
+  padding: 14px 80px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(150, 180, 255, 0.3);
+}
+
+.main-btn:hover {
+  background: var(--secondary);
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.create-btn {
+  background: var(--info);
+}
+
+.create-btn:hover {
+  background: var(--primary);
+}
+
+.join-btn {
+  background: var(--info);
+}
+
+.join-btn:hover {
+  background: var(--primary);
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 60px;
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  .main-btn {
+    font-size: 28px;
+    padding: 10px 50px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 10px 40px;
+  }
+
+  .dino {
+    width: 150px;
+    height: 150px;
+  }
+
+  #username {
+    width: 90%;
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.75);
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.popup-content {
+  background: var(--bg);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 15px var(--border-muted);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.popup-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 12px 0;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-light);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.popup-content input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 4px var(--primary);
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.popup-buttons button {
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.popup-buttons button:hover {
+  background: var(--success);
+  transform: translateY(-2px);
+  box-shadow: 0 0 6px var(--success);
+}
+
+.errMsg {
+  display: none;
+}

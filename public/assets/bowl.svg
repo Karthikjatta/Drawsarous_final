@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80" fill="none">
+  <!-- Bowl shape -->
+  <path d="M20 20 Q60 70 100 20 L20 20 Z" 
+        stroke="#1e88e5" stroke-width="4" fill="none"/>
+  
+  <!-- Bowl base -->
+  <line x1="50" y1="70" x2="70" y2="70" stroke="#1e88e5" stroke-width="4"/>
+</svg>

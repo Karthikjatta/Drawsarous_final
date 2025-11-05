@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawsarous</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <!-- Original Start Screen Content -->
+    <div class="container" id="startScreen">
+      <div>
+        <h1 class="title">Drawsarous</h1>
+      </div>
+      <p>Draw. Guess. Roar!</p>
+      <div class="mascot">
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter your Name"
+          required
+        />
+        <img src="/assets/mascot.png" alt="" class="dino" />
+        <button class="main-btn btn" id="playBtn">Play</button>
+      </div>
+      <div class="buttons">
+        <button class="create-btn btn" id="createRoomBtn">Create Room</button>
+        <button class="join-btn btn" id="joinRoomBtn">Join Room</button>
+      </div>
+    </div>
+
+    <!-- Original Join Room Popup -->
+    <div id="joinPopup" class="popup">
+      <div class="popup-content">
+        <h3>Join a Room</h3>
+        <input type="text" id="joinRoomId" placeholder="Enter Room ID" />
+        <div class="popup-buttons">
+          <button id="confirmJoinBtn">Join</button>
+          <button id="closePopupBtn">Cancel</button>
+        </div>
+      </div>
+      <div class="errMsg"></div>
+    </div>
+
+    <!-- NEW: Game Over Popup (initially hidden) -->
+    <div id="gameOverPopup" class="popup hidden">
+      <div class="popup-content">
+        <h3>Game Over!</h3>
+        <p id="gameOverMessage"></p>
+        <h4>Final Scores:</h4>
+        <ul id="finalScoreBoard">
+          <!-- Final scores will be displayed here -->
+        </ul>
+        <div class="popup-buttons">
+          <button id="playAgainBtn">Play Again</button>
+          <button id="backToMenuBtn">Back to Main Menu</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
